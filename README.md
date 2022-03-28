@@ -9,13 +9,13 @@ sudo apt autoremove
 
 #### nginx install
 ```sh
-sudo apt install nginx
+sudo apt install nginx -y
 ```
 
 #### certbot install & setting
 ```sh
 sudo apt install snapd
-sudo snap install core sudo snap refresh core
+sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
