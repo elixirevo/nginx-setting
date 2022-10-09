@@ -1,5 +1,5 @@
 server {
-        server_name dataseed.popcateum.org;
+        server_name example1.com;
         listen 443 ssl;
         listen [::]:443 ssl;
         location / {
@@ -13,12 +13,12 @@ server {
                 proxy_pass http://127.0.0.1:9506;
                 proxy_redirect off;
         }
-        ssl_certificate         /etc/letsencrypt/live/dataseed.popcateum.org/fullchain.pem;
-        ssl_certificate_key     /etc/letsencrypt/live/dataseed.popcateum.org/privkey.pem;
+        ssl_certificate         /etc/letsencrypt/live/example1.com/fullchain.pem;
+        ssl_certificate_key     /etc/letsencrypt/live/example1.com/privkey.pem;
 }
 
 server {
-    server_name dataseed.popcateum.org;
+    server_name example1.com;
     listen 80;
     return 301 https://$host$request_uri;
 }
