@@ -7,4 +7,5 @@ sudo crontab -e
 # Crontab 실행 로그
 view /var/log/syslog
 
-0 5 1 * * sudo /usr/bin/certbot renew --renew-hook="sudo systemctl restart nginx"
+# 인증서 갱신 스크립트
+0 0 1 * * /home/username/.local/bin/sudo -E python3 certbot certonly --webroot -w /var/www/certbot -d example1.com

@@ -19,8 +19,19 @@ sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
-sudo certbot certonly --manual --preferred-challenges dns -d "*.example1.com" -d "example1.com"
 ```
+
+### certbot plugin
+
+```sh
+# manual dns
+sudo certbot certonly --manual --preferred-challenges dns -d "*.example1.com" -d "example1.com"
+
+# webroot
+sudo certbot certonly --webroot -w /var/www/certbot -d "example1.com" -d "example1.com"
+```
+
+
 
 #### nginx setting
 ```sh
