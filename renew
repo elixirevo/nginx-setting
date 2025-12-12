@@ -7,5 +7,11 @@ sudo crontab -e
 # Crontab 실행 로그
 view /var/log/syslog
 
-# 인증서 갱신 스크립트
-0 0 1 * * /home/username/.local/bin/sudo -E python3 certbot certonly --webroot -w /var/www/certbot -d example1.com
+# old) cron 인증서 갱신 스크립트
+0 0 1 * * /home/{username}/.local/bin/sudo -E python3 certbot certonly --webroot -w /var/www/certbot -d example1.com
+
+# old) cron nginx 재시작 스크립트
+5 0 1 * * sudo /usr/sbin/nginx -s reload
+
+# new)251212. 매일 자정과 정오에 갱신 시도 -> 갱신 성공 시에만 Nginx 리로드
+0 0,12 * * * certbot renew --quiet --deploy-hook "systemctl reload nginx"
